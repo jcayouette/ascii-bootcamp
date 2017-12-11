@@ -1,0 +1,31 @@
+= Project Goals
+
+== The Vision
+
+To stay relevant I propose the following agile solutions:
+
+.The Desirable Outcome:
+
+* Simple enough for contributors to jump into (**Text based and intuitive**)
+* Updated within minutes (Automation via **GitHub/TravisCI/Jenkins**)
+* Integrated with either **Jekyll** and **gh-pages** or our own domain
+* View modern, **properly versioned** documentation by utilizing GitHub a well known VCS
+* SUSE Technical Writers moderate issues and PRs on GitHub
+
+.Project Goals
+
+* Develop conversion from Docbook 5 XML to Asciidoc _(DocbookRx minor devel)_
+* Develop conversion from Asciidoctor output to Docbook 5 XML _(Asciidoctor minor devel)_
+* Combine SUSE Entities into a maintained single source repository
+* Preserve entities from DB5 conversion to Asciidoc, E.G. _( &susemgr; => {SUSE Manager} )_
+
+
+=== Goal Requirements
+
+.Required Changes:
+
+* Current Docbook 5 XML will be converted to Asciidoc
+* Asciidoc is the new source of truth
+* Asciidoc can be converted to Docbook5 XML
+* Docbook5 XML will only be used for publishing output formats to SUSE.com
+* Updated libraries (Asciidoctor Outputs **must validate** against Geekodoc stylesheets (The SUSE Docbook 5 Subset)

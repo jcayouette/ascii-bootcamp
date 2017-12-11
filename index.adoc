@@ -1,0 +1,23 @@
+= Asciidoc Bootcamp
+Joseph Cayouette <https://github.com/jcayouette[@jcayouette]>
+:imagesdir: images
+:doctype: book
+:toc: left
+:toclevels: 3
+:experimental:
+:linkattrs:
+:sectanchors:
+:sectlinks:
+:docdatetime:
+:sectnums:
+
+
+include::docs/overview.adoc[]
+
+include::docs/project-goals.adoc[]
+
+include::docs/comparison-of-methods.adoc[]
+
+include::docs/docbook-toolchain.adoc[]
+
+include::docs/asciidoc-toolchain.adoc[]

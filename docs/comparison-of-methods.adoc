@@ -1,0 +1,47 @@
+= Comparison of Methods
+
+
+== Docbook Process Overview
+
+.Docbook Advantages
+* Validation against a schema _(Valid nesting and order of elements)_
+* Profiling _(Conditional text)_
+* Ancient _(Good support can be found online)_
+* DocBook is an official W3C standard
+* Texts are richly marked up _(Great for computers)_
+* Transforms to many outputs
+* Open Source _(As in free beer)_
+
+.Docbook Limitations
+* The DocBook format is verbose. _(Heaps of need-to-know boilerplate)_
+* Generally humans do not like working with XML (There are some exceptional geeks who love it)
+* To contribute you will need the Docbook 5 reference http://tdg.docbook.org/tdg/5.0/docbook.html[Docbook 5: The Definitive Guide]
+* Complex to maintain stylesheets and tooling _(XSLT)_
+*  A writer must use an IDE, or a ton of manual typing will be required.
+* Slow transformation
+* Uses java for validation resulting in some nasty errors
+
+== Asciidoc Process Overview
+
+=== Asciidoc Advantages
+
+* Text based
+* Easy to Understand Syntax
+* Converts into many outputs formats:
+** (Docbook 4.5, Docbook 5
+** html(or html5)
+** PDF
+** manpage
+** LaTeX
+** epub3
+** mallard
+** xhtml(or xhtml5)).
+* Recognized by GitHub
+* Converts to valid Docbook 5 (Compatible with SUSECom requirements)
+* Profiling via Conditional Directives
+* Modular and topic based (Plugin in documents)
+
+
+=== Asciidoc Limitations
+
+* Limited validation (Asciidoc validates using its own rules. If broken a document will not compile until fixed)

@@ -1,0 +1,83 @@
+= Overview
+// settings:
+:source-language: ruby
+:language: {source-language}
+
+// URIs for Guide
+:uri-org: https://github.com/asciidoctor
+:uri-project: http://asciidoctor.org
+:uri-repo: {uri-org}/asciidoctor
+:uri-docs: {uri-project}/docs
+:uri-what-is-asciidoc: {uri-docs}/what-is-asciidoc
+:uri-license: {uri-rel-file-base}LICENSE.adoc
+
+
+// Ruby Gems and development libraries
+:uri-rubygem-asciidoctor: https://rubygems.org/gems/asciidoctor
+:uri-rubygem-docbookrx-dev:  https://github.com/asciidoctor/docbookrx
+
+// Publishing URLS for Guide
+:uri-publisher: https://github.com/jcayouette/suse-publisher
+:uri-example-sles-docs:
+:uri-example-manager-docs:
+
+//Environment Setup
+:uri-rel-file-base: link:
+:uri-rel-tree-base: link:
+ifdef::env-site[]
+:uri-rel-file-base: {uri-repo}/blob/master/
+:uri-rel-tree-base: {uri-repo}/tree/master/
+endif::[]
+:toc:
+
+== Introduction
+
+The current documentation process at SUSE is aging.
+The Docbook 5 toolchain is unable to keep up with modern documentation expectations without a massive rework.
+
+.Assumptions and Expectations
+* Customers expect _accurate_ documentation in a timely manor. _(Updates in minutes not days or months)_.
+* Modernizing the SUSE documentation process will require a move away from Docbook XML as the primary source of input _(Docbook 5 sources converted from Asciidoc will still be used for publishing)_
+* These changes will not replace current tooling, instead they will act as a lubricant for enabling contribution and automation.
+
+
+
+
+
+
+
+
+== Requirements
+
+=== Third Party Tools
+
+The following tools are required to begin development on migrating from the current Docbook 5 process to the Asciidoctor documentation process. This process will be fully functional across SUSE.
+
+* Ruby 2.4.2
+* {uri-rubygem-docbookrx-dev}[DocbookRx] (gem: docbookrx) is the prescription (℞) you need to get rid of your DocBook pain. This tool converts DocBook XML (hell) to AsciiDoc. Written in Ruby
+* {uri-project}/[Asciidoctor] is a _fast_ text processor and publishing toolchain for converting {uri-what-is-asciidoc}[AsciiDoc] content to HTML5, DocBook 5 (or 4.5) and other formats.
+Asciidoctor is written in Ruby, packaged as a RubyGem and published to {uri-rubygem-asciidoctor}[RubyGems.org].
+Asciidoctor is open source, {uri-repo}[hosted on GitHub] and released under {uri-license}[the MIT license].
+
+.Asciidoctor Docs
+[.compact]
+* {uri-docs}/what-is-asciidoc[What is Asciidoc?]
+* {uri-docs}/asciidoc-writers-guide[AsciiDoc Writer's Guide]
+* {uri-docs}/asciidoc-syntax-quick-reference[AsciiDoc Syntax Reference]
+* {uri-docs}/user-manual[Asciidoctor User Manual]
+
+
+
+=== Testing Validation
+
+* DAPS
+* Novdoc
+* Geekodoc Stylesheets
+* java-1_8_0-openjdk-devel
+
+{uri-project}/[Asciidoctor] is a _fast_ text processor and publishing toolchain for converting {uri-what-is-asciidoc}[AsciiDoc] content to HTML5, DocBook 5 (or 4.5) and other formats.
+Asciidoctor is written in Ruby, packaged as a RubyGem and published to {uri-rubygem}[RubyGems.org].
+The gem is also included in several Linux distributions, including Fedora, Debian and Ubuntu.
+Asciidoctor is open source, {uri-repo}[hosted on GitHub] and released under {uri-license}[the MIT license].
+
+=== Setup Development Tools
