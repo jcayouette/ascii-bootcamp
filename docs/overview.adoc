@@ -40,13 +40,6 @@ The Docbook 5 toolchain is unable to keep up with modern documentation expectati
 * Modernizing the SUSE documentation process will require a move away from Docbook XML as the primary source of input _(Docbook 5 sources converted from Asciidoc will still be used for publishing)_
 * These changes will not replace current tooling, instead they will act as a lubricant for enabling contribution and automation.
 
-
-
-
-
-
-
-
 == Requirements
 
 === Third Party Tools
@@ -65,8 +58,6 @@ Asciidoctor is open source, {uri-repo}[hosted on GitHub] and released under {uri
 * {uri-docs}/asciidoc-writers-guide[AsciiDoc Writer's Guide]
 * {uri-docs}/asciidoc-syntax-quick-reference[AsciiDoc Syntax Reference]
 * {uri-docs}/user-manual[Asciidoctor User Manual]
-
-
 
 === Testing Validation
 
