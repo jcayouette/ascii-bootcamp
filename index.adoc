@@ -1,5 +1,7 @@
-= Asciidoc Bootcamp
+= SUSE Documentation Guide
 Joseph Cayouette <https://github.com/jcayouette[@jcayouette]>
+:toc:
+:product-name:
 :imagesdir: images
 :doctype: book
 :toc: left
@@ -9,15 +11,53 @@ Joseph Cayouette <https://github.com/jcayouette[@jcayouette]>
 :sectanchors:
 :sectlinks:
 :docdatetime:
-:sectnums:
+:linkcss:
+
+// settings:
+:source-language: ruby
+:language: {source-language}
+:source-highlighter: highlight.js
+
+// URIs for Guide
+:uri-org: https://github.com/asciidoctor
+:uri-project: http://asciidoctor.org
+:uri-repo: {uri-org}/asciidoctor
+:uri-docs: {uri-project}/docs
+:uri-what-is-asciidoc: {uri-docs}/what-is-asciidoc
+:uri-license: {uri-rel-file-base}LICENSE.adoc
+
+
+// Ruby Gems and development libraries
+:uri-rubygem-asciidoctor: https://rubygems.org/gems/asciidoctor
+:uri-rubygem-docbookrx-dev:  https://github.com/asciidoctor/docbookrx
+
+// Publishing URLS for Guide
+:uri-publisher: https://github.com/jcayouette/suse-publisher
+:uri-example-sles-docs:
+:uri-example-manager-docs:
+
+//Environment Setup
+:uri-rel-file-base: link:
+:uri-rel-tree-base: link:
+ifdef::env-site[]
+:uri-rel-file-base: {uri-repo}/blob/master/
+:uri-rel-tree-base: {uri-repo}/tree/master/
+endif::[]
+
 
 
 include::docs/overview.adoc[]
 
-include::docs/project-goals.adoc[]
+include::docs/evaluating-the-doc-process.adoc[]
 
 include::docs/comparison-of-methods.adoc[]
 
-include::docs/docbook-toolchain.adoc[]
+include::docs/project-goals.adoc[]
 
 include::docs/asciidoc-toolchain.adoc[]
+
+include::docs/docbook-toolchain.adoc[]
+
+include::docs/creating-stylesheets.adoc[]
+
+include::docs/developers-guide.adoc[]

@@ -1,0 +1,12 @@
+== Using the Docbook Toolchain
+
+=== Requirements for Docbook
+
+link:https://opensuse.github.io/daps/doc/cha.daps.user.inst.html[System Requirements and Installation]
+
+
+
+=== Docbook Authoring and Publishing Suite (DAPS)
+
+Placeholder text.
+

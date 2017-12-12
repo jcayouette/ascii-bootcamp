@@ -1,6 +1,6 @@
-= Project Goals
+== Project Goals
 
-== The Vision
+=== The Vision
 
 To stay relevant I propose the following agile solutions:
 

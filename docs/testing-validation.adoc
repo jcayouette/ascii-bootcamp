@@ -1,3 +1,9 @@
 = Testing Validation of Asciidoctor Output
 Joseph Cayouette
-:toc:
+
+== Testing Validation
+
+* DAPS
+* Novdoc
+* Geekodoc Stylesheets
+* java-1_8_0-openjdk-devel

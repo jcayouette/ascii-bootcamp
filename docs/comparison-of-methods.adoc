@@ -1,7 +1,6 @@
-= Comparison of Methods
+== Process Comparison
 
-
-== Docbook Process Overview
+=== Docbook Process Overview
 
 .Docbook Advantages
 * Validation against a schema _(Valid nesting and order of elements)_
@@ -21,9 +20,9 @@
 * Slow transformation
 * Uses java for validation resulting in some nasty errors
 
-== Asciidoc Process Overview
+=== Asciidoc Process Overview
 
-=== Asciidoc Advantages
+.Asciidoc Advantages
 
 * Text based
 * Easy to Understand Syntax
@@ -42,6 +41,7 @@
 * Modular and topic based (Plugin in documents)
 
 
-=== Asciidoc Limitations
+.Asciidoc Limitations
 
 * Limited validation (Asciidoc validates using its own rules. If broken a document will not compile until fixed)
+
