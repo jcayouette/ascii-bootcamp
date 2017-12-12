@@ -26,12 +26,11 @@ The application rbenv is used to change the global version of Ruby by a user on 
 . Update your system
 
 ----
-sudo zypper refresh
 sudo zypper update
 ----
 
 [start=2]
-. Install Ruby and rbenv dependencies
+. Install Ruby, rbenv, and (gem::Nokogiri) dependencies
 
 ----
 sudo zypper install libyaml-devel libxml2-devel libxslt-devel git perl-Text-Iconv
@@ -44,6 +43,18 @@ sudo zypper install libyaml-devel libxml2-devel libxslt-devel git perl-Text-Icon
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 ----
 
+[start=4]
+. Add `~/.rbenv/bin` to your `$PATH` so you have access to the rbenv command line utility.
+
+----
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+----
+
+[start=5]
+. Add `~/.rbenv/bin/rbenv init` to your `~/.bashrc` profile to load rbenv automatically.
+----
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+----
 
 
 include::creating-stylesheets.adoc[]

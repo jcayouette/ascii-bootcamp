@@ -7,7 +7,7 @@
 <meta name="generator" content="Asciidoctor 1.5.6.1">
 <meta name="author" content="Joseph Cayouette">
 <title>SUSE Documentation Guide</title>
-<link rel="stylesheet" href="css/rubygems.css">
+<link rel="stylesheet" href="css/suse.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body class="book toc2 toc-left">
@@ -414,14 +414,13 @@ The application rbenv is used to change the global version of Ruby by a user on 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>sudo zypper refresh
-sudo zypper update</pre>
+<pre>sudo zypper update</pre>
 </div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Install Ruby and rbenv dependencies</p>
+<p>Install Ruby, rbenv, and (gem::Nokogiri) dependencies</p>
 </li>
 </ol>
 </div>
@@ -440,6 +439,30 @@ sudo zypper update</pre>
 <div class="listingblock">
 <div class="content">
 <pre>git clone https://github.com/rbenv/rbenv.git ~/.rbenv</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Add <code>~/.rbenv/bin</code> to your <code>$PATH</code> so you have access to the rbenv command line utility.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="5">
+<li>
+<p>Add <code>~/.rbenv/bin/rbenv init</code> to your <code>~/.bashrc</code> profile to load rbenv automatically.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc</pre>
 </div>
 </div>
 </div>
@@ -477,7 +500,7 @@ sudo zypper update</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-12 17:14:42 CET
+Last updated 2017-12-12 17:47:06 CET
 </div>
 </div>
 </body>
