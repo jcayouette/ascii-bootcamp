@@ -1,8 +1,8 @@
 == Project Goals
 
-=== The Vision
+=== Vision
 
-To stay relevant I propose the following agile solutions:
+The following agile solutions are proposed to inject superpowers into SUSE documentation:
 
 .The Desirable Outcome:
 
@@ -20,7 +20,7 @@ To stay relevant I propose the following agile solutions:
 * Preserve entities from DB5 conversion to Asciidoc, E.G. _( &susemgr; => {SUSE Manager} )_
 
 
-=== Goal Requirements
+=== Expected Target
 
 .Required Changes:
 
@@ -29,3 +29,11 @@ To stay relevant I propose the following agile solutions:
 * Asciidoc can be converted to Docbook5 XML
 * Docbook5 XML will only be used for publishing output formats to SUSE.com
 * Updated libraries (Asciidoctor Outputs **must validate** against Geekodoc stylesheets (The SUSE Docbook 5 Subset)
+
+=== Process Overview
+
+The following image represents a birds eye view of the (tested) fully automated documentation process:
+
+[#image-process]
+.Automating Documentation
+image::process.svg[]

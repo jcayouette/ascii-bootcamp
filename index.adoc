@@ -2,7 +2,7 @@
 Joseph Cayouette <https://github.com/jcayouette[@jcayouette]>
 :toc:
 :product-name:
-:imagesdir: images
+:imagesdir: images/
 :doctype: book
 :toc: left
 :toclevels: 3
@@ -12,6 +12,7 @@ Joseph Cayouette <https://github.com/jcayouette[@jcayouette]>
 :sectlinks:
 :docdatetime:
 :linkcss:
+:icons: font
 
 // settings:
 :source-language: ruby
@@ -57,7 +58,5 @@ include::docs/project-goals.adoc[]
 include::docs/asciidoc-toolchain.adoc[]
 
 include::docs/docbook-toolchain.adoc[]
-
-include::docs/creating-stylesheets.adoc[]
 
 include::docs/developers-guide.adoc[]

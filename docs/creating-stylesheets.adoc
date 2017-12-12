@@ -1,5 +1,5 @@
-== Styling Documentation
+=== Styling Documentation
 
-=== Stylesheet Factory
+==== Stylesheet Factory
 
 Placeholder text.

@@ -1,14 +1,61 @@
 == Developers Guide
 
-=== Third Party Tools
+The following guide will help developers make contributions to the new documentation toolchain
 
-The following tools are required to begin development on migrating from the current Docbook 5 process to the Asciidoctor documentation process. This process will be fully functional across SUSE.
+=== Development Requirements
+
+The following tools are required to begin development on migrating from the current Docbook 5 process to the Asciidoctor documentation process. The following sections will cover installation and setup of these requirements.
 
 * Ruby 2.4.2
 * {uri-rubygem-docbookrx-dev}[DocbookRx] This tool converts DocBook XML (hell) to AsciiDoc. Written in Ruby
 * {uri-project}/[Asciidoctor] is a _fast_ text processor and publishing toolchain for converting {uri-what-is-asciidoc}[AsciiDoc] content to HTML5, DocBook 5 (or 4.5) and other formats.
 Asciidoctor is written in Ruby.
 
-=== Asciidoc Bug List
+=== Ruby Installation
+
+==== Ruby on OpenSUSE Leap
+
+The multi-version approach currently used by OpenSUSE for Ruby system libraries can be confusing, especially for new users.  This guide will help you setup a safe environment for developing Ruby applications and will allow you to switch between Ruby versions at will.
+
+You will learn how to setup `rbenv`.
+The application rbenv is used to change the global version of Ruby by a user on the fly, and install different versions of Ruby without effecting your system libraries.
+
+===== rbenv Setup Procedure
+
+[start=1]
+. Update your system
+
+----
+sudo zypper refresh
+sudo zypper update
+----
+
+[start=2]
+. Install Ruby and rbenv dependencies
+
+----
+sudo zypper install libyaml-devel libxml2-devel libxslt-devel git perl-Text-Iconv
+----
+
+[start=3]
+. Clone the `rbenv` repository from Github to your home directory
+
+----
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+----
+
+
+
+include::creating-stylesheets.adoc[]
+
+=== DocbookRx Bug List
+
+Placeholder text.
+
+=== Asciidoctor Bug List
+
+Placeholder text.
+
+=== Missing Docbook Tags
 
 Placeholder text.

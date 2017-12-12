@@ -7,7 +7,8 @@
 <meta name="generator" content="Asciidoctor 1.5.6.1">
 <meta name="author" content="Joseph Cayouette">
 <title>SUSE Documentation Guide</title>
-<link rel="stylesheet" href="css/riak.css">
+<link rel="stylesheet" href="css/rubygems.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -33,8 +34,9 @@
 </li>
 <li><a href="#_project_goals">Project Goals</a>
 <ul class="sectlevel2">
-<li><a href="#_the_vision">The Vision</a></li>
-<li><a href="#_goal_requirements">Goal Requirements</a></li>
+<li><a href="#_vision">Vision</a></li>
+<li><a href="#_expected_target">Expected Target</a></li>
+<li><a href="#_process_overview">Process Overview</a></li>
 </ul>
 </li>
 <li><a href="#_using_the_asciidoc_toolchain">Using the Asciidoc Toolchain</a>
@@ -48,15 +50,22 @@
 <li><a href="#_docbook_authoring_and_publishing_suite_daps">Docbook Authoring and Publishing Suite (DAPS)</a></li>
 </ul>
 </li>
-<li><a href="#_styling_documentation">Styling Documentation</a>
+<li><a href="#_developers_guide">Developers Guide</a>
 <ul class="sectlevel2">
+<li><a href="#_development_requirements">Development Requirements</a></li>
+<li><a href="#_ruby_installation">Ruby Installation</a>
+<ul class="sectlevel3">
+<li><a href="#_ruby_on_opensuse_leap">Ruby on OpenSUSE Leap</a></li>
+</ul>
+</li>
+<li><a href="#_styling_documentation">Styling Documentation</a>
+<ul class="sectlevel3">
 <li><a href="#_stylesheet_factory">Stylesheet Factory</a></li>
 </ul>
 </li>
-<li><a href="#_developers_guide">Developers Guide</a>
-<ul class="sectlevel2">
-<li><a href="#_third_party_tools">Third Party Tools</a></li>
-<li><a href="#_asciidoc_bug_list">Asciidoc Bug List</a></li>
+<li><a href="#_docbookrx_bug_list">DocbookRx Bug List</a></li>
+<li><a href="#_asciidoctor_bug_list">Asciidoctor Bug List</a></li>
+<li><a href="#_missing_docbook_tags">Missing Docbook Tags</a></li>
 </ul>
 </li>
 </ul>
@@ -69,7 +78,7 @@
 <div class="sect2">
 <h3 id="_introduction"><a class="anchor" href="#_introduction"></a><a class="link" href="#_introduction">Introduction</a></h3>
 <div class="paragraph">
-<p>The goal of this guide is to assist SUSE enterprise projects in collaborating with upstream communities and external contributors on documentation. This guide aims to provide documentation guidelines, information on using the new SUSE documentation process and toolchain, and includes guidelines for developing the documentation toolchain.</p>
+<p>The purpose of this guide is to assist SUSE enterprise projects in collaborating with external contributors on documentation. This guide aims to provide documentation guidelines, information on using the new SUSE documentation process and toolchain, and includes guidelines for developing the documentation toolchain.</p>
 </div>
 <div class="paragraph">
 <p>In addition to guidelines and tips for the SUSE documentation team (both new and veteran members), this guide provides best practices, example templates, and styling recommendations for contributors.</p>
@@ -79,19 +88,28 @@
 <h3 id="_evaluating_the_documentation_process"><a class="anchor" href="#_evaluating_the_documentation_process"></a><a class="link" href="#_evaluating_the_documentation_process">Evaluating the Documentation Process</a></h3>
 <div class="paragraph">
 <p>The current documentation process at SUSE is showing its age.
-The Docbook 5 toolchain is unable to keep up with modern documentation expectations without a massive rework.</p>
+The Docbook 5 toolchain alone is unable to keep up with modern documentation expectations without a massive rework.</p>
 </div>
 <div class="ulist">
-<div class="title">Assumptions and Expectations</div>
+<div class="title">Assumptions, Expectations and Generalizations</div>
 <ul>
 <li>
 <p>Customers expect <em>accurate</em> documentation in a timely manor. <em>(Updates in minutes not days or months)</em>.</p>
 </li>
 <li>
+<p>Most contributors would prefer to make simple edits and contributions in plain text</p>
+</li>
+<li>
+<p>Most contributors do not want to setup a complicated toolchain for contribution (IDE and tools for Docbook XML)</p>
+</li>
+<li>
+<p>Most contributors do not want to learn or work with Docbook</p>
+</li>
+<li>
 <p>Modernizing the SUSE documentation process will require a move away from Docbook XML as the primary source of input <em>(Docbook 5 sources converted from Asciidoc will still be used for publishing)</em></p>
 </li>
 <li>
-<p>These changes will not replace current tooling, instead they will act as a lubricant for enabling contribution and automation.</p>
+<p>Changes should not replace current tooling, instead they will act as a lubricant for enabling contribution and automation.</p>
 </li>
 </ul>
 </div>
@@ -168,7 +186,7 @@ The Docbook 5 toolchain is unable to keep up with modern documentation expectati
 <p>Easy to Understand Syntax</p>
 </li>
 <li>
-<p>Converts into many outputs formats:</p>
+<p>Converts into many outputs formats: (Custom converters can be written)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -227,9 +245,9 @@ The Docbook 5 toolchain is unable to keep up with modern documentation expectati
 <h2 id="_project_goals"><a class="anchor" href="#_project_goals"></a><a class="link" href="#_project_goals">Project Goals</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_the_vision"><a class="anchor" href="#_the_vision"></a><a class="link" href="#_the_vision">The Vision</a></h3>
+<h3 id="_vision"><a class="anchor" href="#_vision"></a><a class="link" href="#_vision">Vision</a></h3>
 <div class="paragraph">
-<p>To stay relevant I propose the following agile solutions:</p>
+<p>The following agile solutions are proposed to inject superpowers into SUSE documentation:</p>
 </div>
 <div class="ulist">
 <div class="title">The Desirable Outcome:</div>
@@ -270,7 +288,7 @@ The Docbook 5 toolchain is unable to keep up with modern documentation expectati
 </div>
 </div>
 <div class="sect2">
-<h3 id="_goal_requirements"><a class="anchor" href="#_goal_requirements"></a><a class="link" href="#_goal_requirements">Goal Requirements</a></h3>
+<h3 id="_expected_target"><a class="anchor" href="#_expected_target"></a><a class="link" href="#_expected_target">Expected Target</a></h3>
 <div class="ulist">
 <div class="title">Required Changes:</div>
 <ul>
@@ -290,6 +308,18 @@ The Docbook 5 toolchain is unable to keep up with modern documentation expectati
 <p>Updated libraries (Asciidoctor Outputs <strong>must validate</strong> against Geekodoc stylesheets (The SUSE Docbook 5 Subset)</p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_process_overview"><a class="anchor" href="#_process_overview"></a><a class="link" href="#_process_overview">Process Overview</a></h3>
+<div class="paragraph">
+<p>The following image represents a birds eye view of the (tested) fully automated documentation process:</p>
+</div>
+<div id="image-process" class="imageblock">
+<div class="content">
+<img src="images/process.svg" alt="process">
+</div>
+<div class="title">Figure 1. Automating Documentation</div>
 </div>
 </div>
 </div>
@@ -337,23 +367,15 @@ The Docbook 5 toolchain is unable to keep up with modern documentation expectati
 </div>
 </div>
 <div class="sect1">
-<h2 id="_styling_documentation"><a class="anchor" href="#_styling_documentation"></a><a class="link" href="#_styling_documentation">Styling Documentation</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_stylesheet_factory"><a class="anchor" href="#_stylesheet_factory"></a><a class="link" href="#_stylesheet_factory">Stylesheet Factory</a></h3>
-<div class="paragraph">
-<p>Placeholder text.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="_developers_guide"><a class="anchor" href="#_developers_guide"></a><a class="link" href="#_developers_guide">Developers Guide</a></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_third_party_tools"><a class="anchor" href="#_third_party_tools"></a><a class="link" href="#_third_party_tools">Third Party Tools</a></h3>
 <div class="paragraph">
-<p>The following tools are required to begin development on migrating from the current Docbook 5 process to the Asciidoctor documentation process. This process will be fully functional across SUSE.</p>
+<p>The following guide will help developers make contributions to the new documentation toolchain</p>
+</div>
+<div class="sect2">
+<h3 id="_development_requirements"><a class="anchor" href="#_development_requirements"></a><a class="link" href="#_development_requirements">Development Requirements</a></h3>
+<div class="paragraph">
+<p>The following tools are required to begin development on migrating from the current Docbook 5 process to the Asciidoctor documentation process. The following sections will cover installation and setup of these requirements.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -371,7 +393,81 @@ Asciidoctor is written in Ruby.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_asciidoc_bug_list"><a class="anchor" href="#_asciidoc_bug_list"></a><a class="link" href="#_asciidoc_bug_list">Asciidoc Bug List</a></h3>
+<h3 id="_ruby_installation"><a class="anchor" href="#_ruby_installation"></a><a class="link" href="#_ruby_installation">Ruby Installation</a></h3>
+<div class="sect3">
+<h4 id="_ruby_on_opensuse_leap"><a class="anchor" href="#_ruby_on_opensuse_leap"></a><a class="link" href="#_ruby_on_opensuse_leap">Ruby on OpenSUSE Leap</a></h4>
+<div class="paragraph">
+<p>The multi-version approach currently used by OpenSUSE for Ruby system libraries can be confusing, especially for new users.  This guide will help you setup a safe environment for developing Ruby applications and will allow you to switch between Ruby versions at will.</p>
+</div>
+<div class="paragraph">
+<p>You will learn how to setup <code>rbenv</code>.
+The application rbenv is used to change the global version of Ruby by a user on the fly, and install different versions of Ruby without effecting your system libraries.</p>
+</div>
+<div class="sect4">
+<h5 id="_rbenv_setup_procedure"><a class="anchor" href="#_rbenv_setup_procedure"></a><a class="link" href="#_rbenv_setup_procedure">rbenv Setup Procedure</a></h5>
+<div class="olist arabic">
+<ol class="arabic" start="1">
+<li>
+<p>Update your system</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo zypper refresh
+sudo zypper update</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Install Ruby and rbenv dependencies</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo zypper install libyaml-devel libxml2-devel libxslt-devel git perl-Text-Iconv</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Clone the <code>rbenv</code> repository from Github to your home directory</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git clone https://github.com/rbenv/rbenv.git ~/.rbenv</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_styling_documentation"><a class="anchor" href="#_styling_documentation"></a><a class="link" href="#_styling_documentation">Styling Documentation</a></h3>
+<div class="sect3">
+<h4 id="_stylesheet_factory"><a class="anchor" href="#_stylesheet_factory"></a><a class="link" href="#_stylesheet_factory">Stylesheet Factory</a></h4>
+<div class="paragraph">
+<p>Placeholder text.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_docbookrx_bug_list"><a class="anchor" href="#_docbookrx_bug_list"></a><a class="link" href="#_docbookrx_bug_list">DocbookRx Bug List</a></h3>
+<div class="paragraph">
+<p>Placeholder text.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_asciidoctor_bug_list"><a class="anchor" href="#_asciidoctor_bug_list"></a><a class="link" href="#_asciidoctor_bug_list">Asciidoctor Bug List</a></h3>
+<div class="paragraph">
+<p>Placeholder text.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_missing_docbook_tags"><a class="anchor" href="#_missing_docbook_tags"></a><a class="link" href="#_missing_docbook_tags">Missing Docbook Tags</a></h3>
 <div class="paragraph">
 <p>Placeholder text.</p>
 </div>
@@ -381,7 +477,7 @@ Asciidoctor is written in Ruby.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-12 14:39:37 CET
+Last updated 2017-12-12 17:14:42 CET
 </div>
 </div>
 </body>

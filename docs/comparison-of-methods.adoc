@@ -26,7 +26,7 @@
 
 * Text based
 * Easy to Understand Syntax
-* Converts into many outputs formats:
+* Converts into many outputs formats: (Custom converters can be written)
 ** (Docbook 4.5, Docbook 5
 ** html(or html5)
 ** PDF

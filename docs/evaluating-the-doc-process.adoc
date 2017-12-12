@@ -1,9 +1,12 @@
 === Evaluating the Documentation Process
 
 The current documentation process at SUSE is showing its age.
-The Docbook 5 toolchain is unable to keep up with modern documentation expectations without a massive rework.
+The Docbook 5 toolchain alone is unable to keep up with modern documentation expectations without a massive rework.
 
-.Assumptions and Expectations
+.Assumptions, Expectations and Generalizations
 * Customers expect _accurate_ documentation in a timely manor. _(Updates in minutes not days or months)_.
+* Most contributors would prefer to make simple edits and contributions in plain text
+* Most contributors do not want to setup a complicated toolchain for contribution (IDE and tools for Docbook XML)
+* Most contributors do not want to learn or work with Docbook
 * Modernizing the SUSE documentation process will require a move away from Docbook XML as the primary source of input _(Docbook 5 sources converted from Asciidoc will still be used for publishing)_
-* These changes will not replace current tooling, instead they will act as a lubricant for enabling contribution and automation.
+* Changes should not replace current tooling, instead they will act as a lubricant for enabling contribution and automation.
