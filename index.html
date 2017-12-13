@@ -53,9 +53,11 @@
 <li><a href="#_developers_guide">Developers Guide</a>
 <ul class="sectlevel2">
 <li><a href="#_development_requirements">Development Requirements</a></li>
-<li><a href="#_ruby_installation">Ruby Installation</a>
+<li><a href="#_install_ruby_on_opensuse_leap">Install Ruby on OpenSUSE Leap</a>
 <ul class="sectlevel3">
-<li><a href="#_ruby_on_opensuse_leap">Ruby on OpenSUSE Leap</a></li>
+<li><a href="#_rbenv_setup_procedure">rbenv Setup Procedure</a></li>
+<li><a href="#_add_the_install_plugin_to_rbenv">Add the Install Plugin to rbenv</a></li>
+<li><a href="#_installing_a_ruby_version">Installing a Ruby Version</a></li>
 </ul>
 </li>
 <li><a href="#_styling_documentation">Styling Documentation</a>
@@ -87,31 +89,42 @@
 <div class="sect2">
 <h3 id="_evaluating_the_documentation_process"><a class="anchor" href="#_evaluating_the_documentation_process"></a><a class="link" href="#_evaluating_the_documentation_process">Evaluating the Documentation Process</a></h3>
 <div class="paragraph">
-<p>The current documentation process at SUSE is showing its age.
-The Docbook 5 toolchain alone is unable to keep up with modern documentation expectations without a massive rework.</p>
+<p>This is an evaluation of the public frontend contribution process.
+The current frontend documentation process at SUSE is showing its age.
+The Docbook 5 toolchain alone is unable to keep up with modern documentation expectations without a massive rework.
+Docbook 5 is currently required on the backend and is the preferred solution for publishing and validation at SUSE.</p>
 </div>
 <div class="ulist">
 <div class="title">Assumptions, Expectations and Generalizations</div>
 <ul>
 <li>
-<p>Customers expect <em>accurate</em> documentation in a timely manor. <em>(Updates in minutes not days or months)</em>.</p>
+<p>Customers expect <em>accurate</em> documentation in a <code>timely manner</code>. <em>(Updates in minutes not days or months)</em>.</p>
 </li>
 <li>
-<p>Most contributors would prefer to make simple edits and contributions in plain text</p>
+<p>Many contributors would prefer to make simple edits and contributions in <code>plain text</code></p>
 </li>
 <li>
-<p>Most contributors do not want to setup a complicated toolchain for contribution (IDE and tools for Docbook XML)</p>
+<p>Many contributors do not want to setup a complicated toolchain for contribution <code>(IDE and tools for Docbook XML)</code></p>
 </li>
 <li>
-<p>Most contributors do not want to learn or work with Docbook</p>
+<p>Modernizing the SUSE documentation process will require a move away from Docbook XML as the primary source of input <em>(Docbook 5 sources converted from Asciidoc will still be used for publishing and validation)</em></p>
 </li>
 <li>
-<p>Modernizing the SUSE documentation process will require a move away from Docbook XML as the primary source of input <em>(Docbook 5 sources converted from Asciidoc will still be used for publishing)</em></p>
-</li>
-<li>
-<p>Changes should not replace current tooling, instead they will act as a lubricant for enabling contribution and automation.</p>
+<p>Instant gratification is a valuable asset to increasing customer satisfaction/contribution</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Changes suggested in this document are not intended to replace current tooling, these changes should act as a lubricant for enabling contribution and automation on our frontend while retaining the current backend tools for SUSECom.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -313,7 +326,7 @@ The Docbook 5 toolchain alone is unable to keep up with modern documentation exp
 <div class="sect2">
 <h3 id="_process_overview"><a class="anchor" href="#_process_overview"></a><a class="link" href="#_process_overview">Process Overview</a></h3>
 <div class="paragraph">
-<p>The following image represents a birds eye view of the (tested) fully automated documentation process:</p>
+<p>The following image represents a birds eye view of the new automated documentation process:</p>
 </div>
 <div id="image-process" class="imageblock">
 <div class="content">
@@ -380,7 +393,7 @@ The Docbook 5 toolchain alone is unable to keep up with modern documentation exp
 <div class="ulist">
 <ul>
 <li>
-<p>Ruby 2.4.2</p>
+<p>Ruby 2.4.2 (You will install and setup rbenv)</p>
 </li>
 <li>
 <p><a href="https://github.com/asciidoctor/docbookrx">DocbookRx</a> This tool converts DocBook XML (hell) to AsciiDoc. Written in Ruby</p>
@@ -393,78 +406,159 @@ Asciidoctor is written in Ruby.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ruby_installation"><a class="anchor" href="#_ruby_installation"></a><a class="link" href="#_ruby_installation">Ruby Installation</a></h3>
-<div class="sect3">
-<h4 id="_ruby_on_opensuse_leap"><a class="anchor" href="#_ruby_on_opensuse_leap"></a><a class="link" href="#_ruby_on_opensuse_leap">Ruby on OpenSUSE Leap</a></h4>
+<h3 id="_install_ruby_on_opensuse_leap"><a class="anchor" href="#_install_ruby_on_opensuse_leap"></a><a class="link" href="#_install_ruby_on_opensuse_leap">Install Ruby on OpenSUSE Leap</a></h3>
 <div class="paragraph">
 <p>The multi-version approach currently used by OpenSUSE for Ruby system libraries can be confusing, especially for new users.  This guide will help you setup a safe environment for developing Ruby applications and will allow you to switch between Ruby versions at will.</p>
 </div>
 <div class="paragraph">
 <p>You will learn how to setup <code>rbenv</code>.
-The application rbenv is used to change the global version of Ruby by a user on the fly, and install different versions of Ruby without effecting your system libraries.</p>
+The application rbenv is used to change the global version of Ruby by the local user on the fly, and install different versions of Ruby without effecting system libraries.</p>
 </div>
-<div class="sect4">
-<h5 id="_rbenv_setup_procedure"><a class="anchor" href="#_rbenv_setup_procedure"></a><a class="link" href="#_rbenv_setup_procedure">rbenv Setup Procedure</a></h5>
+<div class="sect3">
+<h4 id="_rbenv_setup_procedure"><a class="anchor" href="#_rbenv_setup_procedure"></a><a class="link" href="#_rbenv_setup_procedure">rbenv Setup Procedure</a></h4>
 <div class="olist arabic">
-<ol class="arabic" start="1">
+<ol class="arabic">
 <li>
-<p>Update your system</p>
+<p>Open a terminal and update your system:</p>
+<div class="listingblock">
+<div class="content">
+<pre>&gt; sudo zypper update</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install Ruby, rbenv, and (gem::Nokogiri) dependencies:</p>
+<div class="listingblock">
+<div class="content">
+<pre>&gt; sudo zypper install libyaml-devel libxml2-devel libxslt-devel git perl-Text-Iconv</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Clone the <code>rbenv</code> repository from Github to your home directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre>&gt; git clone https://github.com/rbenv/rbenv.git ~/.rbenv</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add <code>~/.rbenv/bin</code> to your <code>$PATH</code> so you have access to the rbenv command line utility:</p>
+<div class="listingblock">
+<div class="content">
+<pre>&gt; echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add <code>~/.rbenv/bin/rbenv init</code> to your <code>~/.bashrc</code> profile to load rbenv automatically:</p>
+<div class="listingblock">
+<div class="content">
+<pre>&gt; echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Pick up the new configuration changes by sourcing <code>.bashrc</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre>&gt; source ~/.bashrc</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Test if <code>rbenv</code> was setup correctly by executing the type command:</p>
+<div class="listingblock">
+<div class="content">
+<pre>&gt; type rbenv
+rbenv is a function
+rbenv ()
+{
+    local command;
+    command="$1";
+    if [ "$#" -gt 0 ]; then
+        shift;
+    fi;
+    case "$command" in
+        rehash | shell)
+            eval "$(rbenv "sh-$command" "$@")"
+        ;;
+        *)
+            command rbenv "$command" "$@"
+        ;;
+    esac
+}</pre>
+</div>
+</div>
 </li>
 </ol>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_add_the_install_plugin_to_rbenv"><a class="anchor" href="#_add_the_install_plugin_to_rbenv"></a><a class="link" href="#_add_the_install_plugin_to_rbenv">Add the Install Plugin to rbenv</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>To properly use Ruby versioning you should add the <code>install</code> plugin to rbenv:</p>
 <div class="listingblock">
 <div class="content">
-<pre>sudo zypper update</pre>
+<pre>&gt; git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic" start="2">
+</li>
 <li>
-<p>Install Ruby, rbenv, and (gem::Nokogiri) dependencies</p>
+<p>Make sure the <code>install</code> command is available from the rbenv options menu:</p>
+<div class="listingblock">
+<div class="content">
+<pre>&gt; rbenv
+rbenv 1.1.1-6-g2d7cefe
+Usage: rbenv &lt;command&gt; [&lt;args&gt;]
+
+Some useful rbenv commands are:
+   commands    List all available rbenv commands
+   local       Set or show the local application-specific Ruby version
+   global      Set or show the global Ruby version
+   shell       Set or show the shell-specific Ruby version
+   install     Install a Ruby version using ruby-build
+   uninstall   Uninstall a specific Ruby version
+   rehash      Rehash rbenv shims (run this after installing executables)
+   version     Show the current Ruby version and its origin
+   versions    List all Ruby versions available to rbenv
+   which       Display the full path to an executable
+   whence      List all Ruby versions that contain the given executable
+
+See `rbenv help &lt;command&gt;' for information on a specific command.
+For full documentation, see: https://github.com/rbenv/rbenv#readme</pre>
+</div>
+</div>
+</li>
+<li>
+<p>You now have <code>rbenv</code> setup and can begin begin installing different Ruby versions. The next section will show you how to install and finally adjust the global version of Ruby.</p>
 </li>
 </ol>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_installing_a_ruby_version"><a class="anchor" href="#_installing_a_ruby_version"></a><a class="link" href="#_installing_a_ruby_version">Installing a Ruby Version</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List available versions of Ruby:</p>
 <div class="listingblock">
 <div class="content">
-<pre>sudo zypper install libyaml-devel libxml2-devel libxslt-devel git perl-Text-Iconv</pre>
+<pre>&gt; rbenv install -l</pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic" start="3">
+</li>
 <li>
-<p>Clone the <code>rbenv</code> repository from Github to your home directory</p>
+<p>Install Ruby 2.4.2:</p>
+<div class="listingblock">
+<div class="content">
+<pre></pre>
+</div>
+</div>
 </li>
 </ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>git clone https://github.com/rbenv/rbenv.git ~/.rbenv</pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic" start="4">
-<li>
-<p>Add <code>~/.rbenv/bin</code> to your <code>$PATH</code> so you have access to the rbenv command line utility.</p>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc</pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic" start="5">
-<li>
-<p>Add <code>~/.rbenv/bin/rbenv init</code> to your <code>~/.bashrc</code> profile to load rbenv automatically.</p>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc</pre>
-</div>
-</div>
 </div>
 </div>
 </div>

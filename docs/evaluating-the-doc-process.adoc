@@ -1,12 +1,17 @@
 === Evaluating the Documentation Process
 
-The current documentation process at SUSE is showing its age.
+This is an evaluation of the public frontend contribution process.
+The current frontend documentation process at SUSE is showing its age.
 The Docbook 5 toolchain alone is unable to keep up with modern documentation expectations without a massive rework.
+Docbook 5 is currently required on the backend and is the preferred solution for publishing and validation at SUSE.
+
 
 .Assumptions, Expectations and Generalizations
-* Customers expect _accurate_ documentation in a timely manor. _(Updates in minutes not days or months)_.
-* Most contributors would prefer to make simple edits and contributions in plain text
-* Most contributors do not want to setup a complicated toolchain for contribution (IDE and tools for Docbook XML)
-* Most contributors do not want to learn or work with Docbook
-* Modernizing the SUSE documentation process will require a move away from Docbook XML as the primary source of input _(Docbook 5 sources converted from Asciidoc will still be used for publishing)_
-* Changes should not replace current tooling, instead they will act as a lubricant for enabling contribution and automation.
+* Customers expect _accurate_ documentation in a `timely manner`. _(Updates in minutes not days or months)_.
+* Many contributors would prefer to make simple edits and contributions in `plain text`
+* Many contributors do not want to setup a complicated toolchain for contribution `(IDE and tools for Docbook XML)`
+* Modernizing the SUSE documentation process will require a move away from Docbook XML as the primary source of input _(Docbook 5 sources converted from Asciidoc will still be used for publishing and validation)_
+* Instant gratification is a valuable asset to increasing customer satisfaction/contribution
+
+WARNING: Changes suggested in this document are not intended to replace current tooling, these changes should act as a lubricant for enabling contribution and automation on our frontend while retaining the current backend tools for SUSECom.
+

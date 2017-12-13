@@ -6,55 +6,131 @@ The following guide will help developers make contributions to the new documenta
 
 The following tools are required to begin development on migrating from the current Docbook 5 process to the Asciidoctor documentation process. The following sections will cover installation and setup of these requirements.
 
-* Ruby 2.4.2
+* Ruby 2.4.2 (You will install and setup rbenv)
 * {uri-rubygem-docbookrx-dev}[DocbookRx] This tool converts DocBook XML (hell) to AsciiDoc. Written in Ruby
 * {uri-project}/[Asciidoctor] is a _fast_ text processor and publishing toolchain for converting {uri-what-is-asciidoc}[AsciiDoc] content to HTML5, DocBook 5 (or 4.5) and other formats.
 Asciidoctor is written in Ruby.
 
-=== Ruby Installation
 
-==== Ruby on OpenSUSE Leap
+=== Install Ruby on OpenSUSE Leap
 
 The multi-version approach currently used by OpenSUSE for Ruby system libraries can be confusing, especially for new users.  This guide will help you setup a safe environment for developing Ruby applications and will allow you to switch between Ruby versions at will.
 
 You will learn how to setup `rbenv`.
-The application rbenv is used to change the global version of Ruby by a user on the fly, and install different versions of Ruby without effecting your system libraries.
+The application rbenv is used to change the global version of Ruby by the local user on the fly, and install different versions of Ruby without effecting system libraries.
 
-===== rbenv Setup Procedure
+==== rbenv Setup Procedure
 
-[start=1]
-. Update your system
 
+. Open a terminal and update your system:
++
 ----
-sudo zypper update
-----
-
-[start=2]
-. Install Ruby, rbenv, and (gem::Nokogiri) dependencies
-
-----
-sudo zypper install libyaml-devel libxml2-devel libxslt-devel git perl-Text-Iconv
+> sudo zypper update
 ----
 
-[start=3]
-. Clone the `rbenv` repository from Github to your home directory
-
+. Install Ruby, rbenv, and (gem::Nokogiri) dependencies:
++
 ----
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-----
-
-[start=4]
-. Add `~/.rbenv/bin` to your `$PATH` so you have access to the rbenv command line utility.
-
-----
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+> sudo zypper install libyaml-devel libxml2-devel libxslt-devel git perl-Text-Iconv
 ----
 
-[start=5]
-. Add `~/.rbenv/bin/rbenv init` to your `~/.bashrc` profile to load rbenv automatically.
+. Clone the `rbenv` repository from Github to your home directory:
++
 ----
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+> git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 ----
+
+. Add `~/.rbenv/bin` to your `$PATH` so you have access to the rbenv command line utility:
++
+----
+> echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+----
+
+. Add `~/.rbenv/bin/rbenv init` to your `~/.bashrc` profile to load rbenv automatically:
++
+----
+> echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+----
+
+. Pick up the new configuration changes by sourcing `.bashrc`:
++
+----
+> source ~/.bashrc
+----
+
+. Test if `rbenv` was setup correctly by executing the type command:
++
+----
+> type rbenv
+rbenv is a function
+rbenv ()
+{
+    local command;
+    command="$1";
+    if [ "$#" -gt 0 ]; then
+        shift;
+    fi;
+    case "$command" in
+        rehash | shell)
+            eval "$(rbenv "sh-$command" "$@")"
+        ;;
+        *)
+            command rbenv "$command" "$@"
+        ;;
+    esac
+}
+----
+
+
+==== Add the Install Plugin to rbenv
+
+. To properly use Ruby versioning you should add the `install` plugin to rbenv:
++
+----
+> git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+----
+
+. Make sure the `install` command is available from the rbenv options menu:
++
+----
+> rbenv
+rbenv 1.1.1-6-g2d7cefe
+Usage: rbenv <command> [<args>]
+
+Some useful rbenv commands are:
+   commands    List all available rbenv commands
+   local       Set or show the local application-specific Ruby version
+   global      Set or show the global Ruby version
+   shell       Set or show the shell-specific Ruby version
+   install     Install a Ruby version using ruby-build
+   uninstall   Uninstall a specific Ruby version
+   rehash      Rehash rbenv shims (run this after installing executables)
+   version     Show the current Ruby version and its origin
+   versions    List all Ruby versions available to rbenv
+   which       Display the full path to an executable
+   whence      List all Ruby versions that contain the given executable
+
+See `rbenv help <command>' for information on a specific command.
+For full documentation, see: https://github.com/rbenv/rbenv#readme
+
+----
+
+. You now have `rbenv` setup and can begin begin installing different Ruby versions. The next section will show you how to install and finally adjust the global version of Ruby.
+
+==== Installing a Ruby Version
+
+. List available versions of Ruby:
++
+----
+> rbenv install -l
+----
+
+. Install Ruby 2.4.2:
++
+----
+
+----
+
 
 
 include::creating-stylesheets.adoc[]

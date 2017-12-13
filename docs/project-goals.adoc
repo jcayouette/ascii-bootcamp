@@ -32,7 +32,7 @@ The following agile solutions are proposed to inject superpowers into SUSE docum
 
 === Process Overview
 
-The following image represents a birds eye view of the (tested) fully automated documentation process:
+The following image represents a birds eye view of the new automated documentation process:
 
 [#image-process]
 .Automating Documentation
