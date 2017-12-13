@@ -17,49 +17,56 @@ Asciidoctor is written in Ruby.
 The multi-version approach currently used by OpenSUSE for Ruby system libraries can be confusing, especially for new users.  This guide will help you setup a safe environment for developing Ruby applications and will allow you to switch between Ruby versions at will.
 
 You will learn how to setup `rbenv`.
-The application rbenv is used to change the global version of Ruby by the local user on the fly, and install different versions of Ruby without effecting system libraries.
+The application rbenv is used to change the global version of Ruby by the local user on the fly, and install different versions of Ruby without affecting system libraries.
 
 ==== rbenv Setup Procedure
 
 
 . Open a terminal and update your system:
 +
+[source, sh]
 ----
 > sudo zypper update
 ----
 
 . Install Ruby, rbenv, and (gem::Nokogiri) dependencies:
 +
+[source, sh]
 ----
 > sudo zypper install libyaml-devel libxml2-devel libxslt-devel git perl-Text-Iconv
 ----
 
 . Clone the `rbenv` repository from Github to your home directory:
 +
+[source, sh]
 ----
 > git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 ----
 
 . Add `~/.rbenv/bin` to your `$PATH` so you have access to the rbenv command line utility:
 +
+[source, sh]
 ----
 > echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 ----
 
 . Add `~/.rbenv/bin/rbenv init` to your `~/.bashrc` profile to load rbenv automatically:
 +
+[source, sh]
 ----
 > echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 ----
 
 . Pick up the new configuration changes by sourcing `.bashrc`:
 +
+[source, sh]
 ----
 > source ~/.bashrc
 ----
 
 . Test if `rbenv` was setup correctly by executing the type command:
 +
+[source, sh]
 ----
 > type rbenv
 rbenv is a function
@@ -82,16 +89,18 @@ rbenv ()
 ----
 
 
-==== Add the Install Plugin to rbenv
+==== Add the Installation Plugin
 
-. To properly use Ruby versioning you should add the `install` plugin to rbenv:
+. To properly use Ruby versioning setup the `install` plugin with rbenv:
 +
+[source, sh]
 ----
 > git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ----
 
 . Make sure the `install` command is available from the rbenv options menu:
 +
+[source, sh]
 ----
 > rbenv
 rbenv 1.1.1-6-g2d7cefe
@@ -112,25 +121,63 @@ Some useful rbenv commands are:
 
 See `rbenv help <command>' for information on a specific command.
 For full documentation, see: https://github.com/rbenv/rbenv#readme
-
 ----
++
 
-. You now have `rbenv` setup and can begin begin installing different Ruby versions. The next section will show you how to install and finally adjust the global version of Ruby.
+. You now have `rbenv` setup and can begin begin installing different Ruby versions. The next section will show you how to install and change the global version of Ruby.
 
-==== Installing a Ruby Version
+==== Installing Ruby with rbenv
+
+. Disable installation of command line documentation to speed up the installation process (optional step):
++
+[source, sh]
+----
+> echo "gem: --no-document" > ~/.gemrc
+----
 
 . List available versions of Ruby:
 +
+[source, sh]
 ----
 > rbenv install -l
 ----
 
 . Install Ruby 2.4.2:
 +
+[source, sh]
+----
+> rbenv install 2.4.2
+----
++
+[TIP, caption='Tip']
+.Using Multiple Versions
+You can install other versions of Ruby along side the previous installation safely. These will be stored in:
+
++
+[source, sh]
+----
+> ~/.rbenv/versions/
+2.3.5/ 2.4.2/
 ----
 
+. Set Ruby 2.4.2 as the global version:
++
+[source, sh]
+----
+> rbenv global 2.4.2
 ----
 
+. Check the global version of Ruby:
++
+[source, sh]
+----
+> ruby -v
+ruby 2.4.2p198 (2017-09-14 revision 59899) [x86_64-linux]
+----
+
+==== Installing Nokogiri on OpenSUSE
+
+Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
 
 
 include::creating-stylesheets.adoc[]
