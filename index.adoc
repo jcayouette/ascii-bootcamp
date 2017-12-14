@@ -1,7 +1,7 @@
 = SUSE Documentation Guide
 Joseph Cayouette <https://github.com/jcayouette[@jcayouette]>
 :toc:
-:source-highlighter: highlightjs-theme
+:source-highlighter: highlightjs
 :imagesdir: images/
 :doctype: book
 :toc: left

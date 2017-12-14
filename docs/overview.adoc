@@ -3,9 +3,9 @@
 
 === Introduction
 
-The purpose of this guide is to assist SUSE enterprise projects in collaborating with external contributors on documentation. This guide aims to provide documentation guidelines, information on using the new SUSE documentation process and toolchain, and includes guidelines for developing the documentation toolchain.
+The purpose of this guide is to assist SUSE enterprise projects in collaborating with external contributors on documentation. This guide aims to provide documentation guidelines, information on using an experimental SUSE documentation process and toolchain, and includes guidelines for developing said toolchain.
 
 In addition to guidelines and tips for the SUSE documentation team (both new and veteran members), this guide provides best practices, example templates, and styling recommendations for contributors.
 
-
+As this document is a work in progress some sections will be incomplete or appear chaotic.
 
