@@ -128,7 +128,7 @@ For full documentation, see: https://github.com/rbenv/rbenv#readme
 
 ==== Installing Ruby with rbenv
 
-. Disable installation of command line documentation to speed up the installation process (optional step):
+. Disable installation of command line documentation to speed up the installation process **(optional step)**:
 +
 [source, sh]
 ----
